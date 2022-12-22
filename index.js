@@ -9,10 +9,19 @@ const lookup = {
 };
 
 function rot13(encodedStr){
-  const codeArr = encodedStr.split("");  // String to Array
   let decodedArr = []; // Your Result goes here
   // Only change code below this line
+  
   // your code here
+  for(let character of encodedStr){
+    if(character in lookup){
+      let forward13 = lookup[character];
+      decodedArr.push(forward13)
+    }else{
+      decodedArr.push(character)
+    }
+  }
+  
   // Only change code above this line
   return decodedArr.join(""); // Array to String
 }
